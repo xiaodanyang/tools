@@ -5,12 +5,12 @@
 // 毫秒数转日期对象：new Date(timestamp)
 
 var BaseUtil = {
-	/**
-	 * 获取url中的参数
-	 * 
-	 * @param {String} url(最多只能有一个问号)
-	 * @return {Object} json
-	 */
+    /**
+     * 获取url中的参数
+     * 
+     * @param {String} url(最多只能有一个问号)
+     * @return {Object} json
+     */
 	getUrlParams: function (url) {
 		var searchUrl = url || window.location.search;
 		var searchIndex = searchUrl.indexOf('?');
@@ -34,59 +34,59 @@ var BaseUtil = {
 
 // 日期格式化
 var DateUtil = {
-	/**
-	 * @param {Number} timestamp(时间戳)
-	 * @param {String} str(年月日连接符)
-	 */
-	toYMDhms: function (timestamp, str) {
-		if (!timestamp) {
-			return '';
-		}
-		var date = new Date(timestamp),
-			str = str || '-',
-			Y = date.getFullYear(),
-			M = date.getMonth() + 1,
-			D = date.getDate(),
-			h = date.getHours(),
-			m = date.getMinutes(),
-			s = date.getSeconds();
-		return Y +
-			str + (M < 10 ? ('0' + M) : M) +
-			str + (D < 10 ? ('0' + D) : D) +
-			' ' + (h < 10 ? ('0' + h) : h) +
-			':' + (m < 10 ? ('0' + m) : m) +
-			':' + (s < 10 ? ('0' + s) : s);
-	},
-	toYMDhm: function (timestamp, str) {
-		if (!timestamp) {
-			return '';
-		}
-		var date = new Date(timestamp),
-			str = str || '-',
-			Y = date.getFullYear(),
-			M = date.getMonth() + 1,
-			D = date.getDate(),
-			h = date.getHours(),
-			m = date.getMinutes();
-		return Y +
-			str + (M < 10 ? ('0' + M) : M) +
-			str + (D < 10 ? ('0' + D) : D) +
-			' ' + (h < 10 ? ('0' + h) : h) +
-			':' + (m < 10 ? ('0' + m) : m);
-	},
-	toYMD: function (timestamp, str) {
-		if (!timestamp) {
-			return '';
-		}
-		var date = new Date(timestamp),
-			str = str || '-',
-			Y = date.getFullYear(),
-			M = date.getMonth() + 1,
-			D = date.getDate();
-		return Y +
-			str + (M < 10 ? ('0' + M) : M) +
-			str + (D < 10 ? ('0' + D) : D);
-	}
+    /**
+     * @param {Number} timestamp(时间戳)
+     * @param {String} str(年月日连接符)
+     */
+    toYMDhms: function (timestamp, str) {
+        if (!timestamp) {
+            return '';
+        }
+        var date = new Date(timestamp),
+        	str = str || '-',
+        	Y = date.getFullYear(),
+        	M = date.getMonth() + 1,
+        	D = date.getDate(),
+        	h = date.getHours(),
+        	m = date.getMinutes(),
+        	s = date.getSeconds();
+        return Y +
+            str + (M < 10 ? ('0' + M) : M) +
+            str + (D < 10 ? ('0' + D) : D) +
+            ' ' + (h < 10 ? ('0' + h) : h) +
+            ':' + (m < 10 ? ('0' + m) : m) +
+            ':' + (s < 10 ? ('0' + s) : s);
+    },
+    toYMDhm: function (timestamp, str) {
+        if (!timestamp) {
+            return '';
+        }
+        var date = new Date(timestamp),
+        	str = str || '-',
+        	Y = date.getFullYear(),
+        	M = date.getMonth() + 1,
+        	D = date.getDate(),
+        	h = date.getHours(),
+        	m = date.getMinutes();
+        return Y +
+            str + (M < 10 ? ('0' + M) : M) +
+            str + (D < 10 ? ('0' + D) : D) +
+            ' ' + (h < 10 ? ('0' + h) : h) +
+            ':' + (m < 10 ? ('0' + m) : m);
+    },
+    toYMD: function (timestamp, str) {
+        if (!timestamp) {
+            return '';
+        }
+        var date = new Date(timestamp),
+        	str = str || '-',
+        	Y = date.getFullYear(),
+        	M = date.getMonth() + 1,
+        	D = date.getDate();
+        return Y +
+            str + (M < 10 ? ('0' + M) : M) +
+            str + (D < 10 ? ('0' + D) : D);
+    }
 }
 
 
