@@ -32,7 +32,7 @@ var BaseUtil = {
 	}
 }
 
-// 日期格式化
+// 日期格式化：方法一
 var DateUtil = {
     /**
      * @param {Number} timestamp(时间戳)
@@ -87,6 +87,37 @@ var DateUtil = {
             str + (M < 10 ? ('0' + M) : M) +
             str + (D < 10 ? ('0' + D) : D);
     }
+}
+
+// 日期格式化：方法二
+function dateFormat (timestamp, fmt, str) {
+	if (!timestamp) {
+		return '';
+	}
+	var date = new Date(timestamp),
+		str = str || '-',
+		
+		Y = date.getFullYear(),
+		M = date.getMonth() + 1,
+		D = date.getDate(),
+		h = date.getHours(),
+		m = date.getMinutes(),
+		s = date.getSeconds();
+		
+		M = M < 10 ? ('0' + M) : M;
+		D = D < 10 ? ('0' + D) : D;
+		h = h < 10 ? (' 0' + h) : (' ' + h);
+		m = m < 10 ? (':0' + m) : (':' + m);
+		s = s < 10 ? (':0' + s) : (':' + s);
+		
+	switch (fmt) {
+		case 'YMDhms': break;
+		case 'YMDhm': s = ''; break;
+		case 'YMD': h = m = s = ''; break;
+		default: break;
+	}
+	
+	return Y + str + M + str + D + h + m + s;
 }
 
 
