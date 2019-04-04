@@ -90,7 +90,13 @@ var DateUtil = {
 }
 
 // 日期格式化：方法二
-function dateFormat (timestamp, fmt, str) {
+
+/**
+ * @param {Number} timestamp(时间戳)
+ * @param {String} (YMDhms, YMDhm, YMD) 可选
+ * @param {String} str(年月日连接符)
+ */
+function dateFormat (timestamp, type, str) {
 	if (!timestamp) {
 		return '';
 	}
@@ -110,7 +116,7 @@ function dateFormat (timestamp, fmt, str) {
 		m = m < 10 ? (':0' + m) : (':' + m);
 		s = s < 10 ? (':0' + s) : (':' + s);
 		
-	switch (fmt) {
+	switch (type) {
 		case 'YMDhms': break;
 		case 'YMDhm': s = ''; break;
 		case 'YMD': h = m = s = ''; break;
