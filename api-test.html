@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>接口测试</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+	<div v-for="(newsList, key, index) in newsTypeList">
+		<h5 style="color: red;">[新闻类型] - {{key}}</h5>
+		<ol>
+			<li v-for="(newsItem, index) in newsList" :key="newsItem.id">
+				<p>{{newsItem.title}}</p>
+				<p><span>{{newsItem.ptime}}&emsp;&emsp;</span><span>来源：{{newsItem.source}}</span></p>
+				<p>点击跳转：<a :href="newsItem.link">{{newsItem.link}}</a></p>
+			</li>
+		</ol>
+	</div>
+</div>
+	
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#container',
+		data: {
+			newsTypeList: {},
+			apiUrl: 'https://www.apiopen.top/journalismApi'
+		},
+		created () {
+			var self = this;
+			axios.get(self.apiUrl).then(response => {
+				console.log({...response.data.data.toutiao})
+				self.newsTypeList = response.data.data;
+			});
+		}
+	})
+	
+</script>
+</body>
+</html>
