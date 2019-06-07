@@ -228,6 +228,8 @@ var NumberUtil = {
 //	console.log(1.2 / 3);
 //	console.log(3.2 % 2);
 
+// 有 加减乘除 时，一律都需要考虑此问题
+
 
 
 // 获取验证码倒计时
